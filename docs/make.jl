@@ -20,7 +20,7 @@ makedocs(
     ]
 )
 
-#deploydocs(
-#    repo = "CTProblemLibrary.jl.git",
-#    devbranch = "main"
-#)
+deploydocs(
+    repo = "github.com/control-toolbox/CTProblemLibrary.jl.git",
+    devbranch = "main"
+)
