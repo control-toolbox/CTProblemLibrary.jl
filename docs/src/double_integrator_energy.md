@@ -2,7 +2,6 @@
 
 ```@example main
 using CTProblemLibrary
-using Plots; nothing # hide
 ```
 
 The energy min double integrator problem consists in minimising
@@ -32,7 +31,4 @@ prob.model
 You can plot the solution.
 ```@example main
 plot(prob.solution)
-savefig("sol-plot.svg"); nothing # hide
 ```
-
-![](sol-plot.svg)
