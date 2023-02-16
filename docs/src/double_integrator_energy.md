@@ -2,7 +2,6 @@
 
 ```@example main
 using CTProblemLibrary
-using Plots; nothing # hide
 ```
 
 The energy min double integrator problem consists in minimising
