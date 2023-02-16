@@ -21,6 +21,7 @@ include("problem.jl")
 include("plot.jl")
 #
 include("examples/double_integrator_energy.jl")
+include("examples/goddard.jl")
 
 # list of examples
 examples = ()
