@@ -2,7 +2,7 @@ module CTProblemLibrary
 
 #
 using ControlToolboxTools
-using OptimalControl
+using CTBase
 using MacroTools
 #
 using Plots
@@ -11,7 +11,7 @@ import Plots: plot, plot! # import instead of using to overload the plot and plo
 
 # Types
 const MyNumber, MyVector, Time, Times, TimesDisc, States, 
-    Adjoints, Controls, State, Adjoint, Dimension = OptimalControl.CTBase.types()
+    Adjoints, Controls, State, Adjoint, Dimension = CTBase.types()
 
 #
 include("macros.jl")
@@ -25,6 +25,7 @@ include("examples/double_integrator_energy.jl")
 # list of examples
 examples = ()
 examples = add(examples, (:integrator, :dim2, :energy))
+examples = add(examples, (:goddard, :state_constraint))
 
 Problems() = examples
 

@@ -32,7 +32,4 @@ prob.model
 You can plot the solution.
 ```@example main
 plot(prob.solution)
-savefig("sol-plot.svg"); nothing # hide
 ```
-
-![](sol-plot.svg)
