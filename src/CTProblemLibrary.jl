@@ -1,17 +1,12 @@
 module CTProblemLibrary
 
 #
-using ControlToolboxTools
+#using ControlToolboxTools
 using CTBase
 using MacroTools
 #
 using Plots
 import Plots: plot, plot! # import instead of using to overload the plot and plot! functions
-
-
-# Types
-const MyNumber, MyVector, Time, Times, TimesDisc, States, 
-    Adjoints, Controls, State, Adjoint, Dimension = CTBase.types()
 
 #
 include("macros.jl")
