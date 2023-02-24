@@ -1,15 +1,12 @@
 module CTProblemLibrary
 
 #
-#using ControlToolboxTools
 using CTBase
-using MacroTools
 #
 using Plots
 import Plots: plot, plot! # import instead of using to overload the plot and plot! functions
 
 #
-include("macros.jl")
 include("exceptions.jl")
 include("solution.jl")
 include("problem.jl")

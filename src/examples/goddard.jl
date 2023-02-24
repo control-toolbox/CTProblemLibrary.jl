@@ -1,6 +1,6 @@
 EXAMPLE=(:goddard, :state_constraint)
 
-@eval_example function OptimalControlProblem{EXAMPLE}()
+@eval function OptimalControlProblem{EXAMPLE}()
     # should return an OptimalControlProblem{example} with a message, a model and a solution
 
     # 
