@@ -57,14 +57,7 @@ EXAMPLE=(:goddard, :state_constraint)
     constraint!(ocp, :dynamics, f)
 
     # the solution
-    x(t) = zeros(n)
-    p(t) = zeros(n)
-    u(t) = zeros(m)
-    #
-    N=201
-    times = range(0.0, 1.0, N)
-    #
-    sol = OptimalControlSolution(n, m, times, x, p, u)
+    sol = OptimalControlSolution()
 
     #
     return OptimalControlProblem{EXAMPLE}(msg, ocp, sol)

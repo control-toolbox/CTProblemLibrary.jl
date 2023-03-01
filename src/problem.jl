@@ -5,20 +5,24 @@ struct OptimalControlProblem{example} <: AbstractCTProblem
     message::String
     model::OptimalControlModel
     solution::OptimalControlSolution
-    #OptimalControlProblem{example}(m::String) where {example} = new{example}(m, nothing, nothing)
+end
+
+# exception
+abstract type CTTestProbemsException <: Exception end
+
+# not implemented
+struct MethodNotImplemented <: CTTestProbemsException
+    method::String
+    example::Description
+end
+
+function Base.showerror(io::IO, e::MethodNotImplemented) 
+    print(io, "the method ", e.method, " is not implemented for example ", e.example)
 end
 
 function OptimalControlProblem{example}() where {example}
     throw(MethodNotImplemented("Problem", example))
 end
-
-#function get_example_description(ocp::OptimalControlProblem{example}) where example
-#    return example
-#end
-
-#function OptimalControlProblem{example}(args...; kwargs...) where {example}
-#    throw(MethodNotImplemented("problem", example))
-#end
 
 function Problem(description...) 
     example = getFullDescription(makeDescription(description...), Problems())

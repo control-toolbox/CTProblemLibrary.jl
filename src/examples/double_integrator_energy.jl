@@ -27,9 +27,6 @@ EXAMPLE=(:integrator, :dim2, :energy)
     objective!(ocp, :lagrange, (x, u) -> 0.5u[1]^2) # default is to minimise
 
     # the solution
-    x(t, a, b, α, β) = [a+b*(t-t0)+β*(t-t0)^2/2.0-α*(t-t0)^3/6.0, b+β*(t-t0)-α*(t-t0)^2/2.0]
-    p(t, a, b, α, β) = [α, -α*(t-t0)+β]
-    u(t, a, b, α, β) = [p(t, a, b, α, β)[2]]
     a = x0[1]
     b = x0[2]
     C = [-(tf-t0)^3/6.0 (tf-t0)^2/2.0
@@ -38,11 +35,28 @@ EXAMPLE=(:integrator, :dim2, :energy)
     p0 = C\D
     α = p0[1]
     β = p0[2]
+    x(t) = [a+b*(t-t0)+β*(t-t0)^2/2.0-α*(t-t0)^3/6.0, b+β*(t-t0)-α*(t-t0)^2/2.0]
+    p(t) = [α, -α*(t-t0)+β]
+    u(t) = [p(t)[2]]
+    objective = 0.5*(α^2*(tf-t0)^3/3+β^2*(tf-t0)-α*β*(tf-t0)^2/2)
     #
     N=201
-    times = range(0.0, tf, N)
+    times = range(t0, tf, N)
     #
-    sol = OptimalControlSolution(n, m, times, t->x(t, a, b, α, β), t->p(t, a, b, α, β), t->u(t, a, b, α, β))
+    sol = OptimalControlSolution() #n, m, times, x, p, u)
+    sol.state_dimension = n
+    sol.control_dimension = m
+    sol.times = times
+    sol.state = x
+    sol.state_labels = [ "x" * ctindices(i) for i ∈ range(1, n)]
+    sol.adjoint = p
+    sol.control = u
+    sol.control_labels = [ "u" ]
+    sol.objective = objective
+    sol.iterations = 0
+    sol.stopping = :dummy
+    sol.message = "analytical solution"
+    sol.success = true
 
     #
     return OptimalControlProblem{EXAMPLE}(msg, ocp, sol)
