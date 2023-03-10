@@ -1,7 +1,7 @@
 name = "CTProblemLibrary"
 uuid = "0649932a-8c77-4f67-b1e4-c19ddd080280"
 authors = ["Olivier Cots <olivier.cots@enseeiht.fr>"]
-version = "0.2.5"
+version = "0.2.6"
 
 [deps]
 CTBase = "54762871-cc72-4466-b8e8-f6c8b58076cd"
