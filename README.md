@@ -1,7 +1,3 @@
 # CTProblemLibrary
 
-[gh-ci-img]: https://github.com/control-toolbox/CTProblemLibrary.jl/actions/workflows/CI.yml/badge.svg?branch=main
-[gh-ci-url]: https://github.com/control-toolbox/CTProblemLibrary.jl/actions/workflows/CI.yml?query=branch%3Amain
-
-[![Build Status][gh-ci-img]][gh-ci-url] 
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](http://control-toolbox.github.io/CTProblemLibrary.jl)
+DEPRECATED: replaced by [CTProblems](https://github.com/control-toolbox/CTProblems.jl).
